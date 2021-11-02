@@ -19,7 +19,7 @@ def test_energy_create_class_module5(parse):
 
     my_file_import = my_file.from_imports(
         "house_info", "HouseInfo")
-    
+
     assert my_file_import, "Are you importing `HouseInfo` from `house_info` in `{}` file".format(test_file)
     my_class = my_file.query("class {0}({1}): ??".format(test_class, parent_class))
     assert (
@@ -27,9 +27,9 @@ def test_energy_create_class_module5(parse):
     ), """Have you created a class called `{0}`?
         Is your class inheriting the properties of the `{1}` class?""".format(test_class, parent_class)
 
-    # debug_test_case_class(my_class, test_method) 
+    # debug_test_case_class(my_class, test_method)
 
-    
+
     test_code = (
         my_class.assign_().match(
             {
@@ -54,8 +54,8 @@ def test_energy_create_class_module5(parse):
         Did you set it to `0.2` float number?
         Are you declararing a constant `ENERGY_BITS`?
         Did you set it to `0x0F0` hex number?"""
-   
-  
+
+
 @pytest.mark.test_energy_get_energy_method_module5
 def test_energy_get_energy_method_module5(parse):
     # def _get_energy(self, rec):
@@ -77,16 +77,16 @@ def test_energy_get_energy_method_module5(parse):
         my_class.exists()
     ), """Have you created a class called `{0}`?
         Is your class inheritings the properties of the `{1}` class?""".format(test_class, parent_class)
-    
-    # debug_test_case_class(my_class, test_method) 
+
+    # debug_test_case_class(my_class, test_method)
 
     my_method = my_file.class_(test_class).method(test_method)
     assert (
         my_method.exists()
     ), "Are you defining a method called `{}`?".format(test_method)
-    
-    # debug_test_case(my_method) 
-    
+
+    # debug_test_case(my_method)
+
     my_class_arguments = (
         my_class.def_args_(test_method).match(
             {
@@ -109,8 +109,8 @@ def test_energy_get_energy_method_module5(parse):
         my_class_arguments
     ), """Are you defining a method `{0}` for the `{1}` class?
         Are you declaring the correct name and number of parameters?""".format(test_method, test_class)
-    
-    # Check for assignment 
+
+    # Check for assignment
     test_code = (
         my_method.assign_().match(
             {
@@ -156,7 +156,7 @@ def test_energy_get_energy_method_module5(parse):
     assert (
         test_code
     ), """Are you converting `energy` by "anding it" with `self.ENERGY_BITS`?"""
-    
+
     test_code = (
         my_method.assign_().match(
             {
@@ -176,7 +176,7 @@ def test_energy_get_energy_method_module5(parse):
     assert (
         test_code
     ), """Are you converting `energy` by shifting the bits to the right 4 positions?"""
-    
+
     test_code = (
         my_method.returns_call().match(
             {
@@ -210,7 +210,7 @@ def test_energy_convert_method_module5(parse):
 
     my_file_import = my_file.from_imports(
         "house_info", "HouseInfo")
-    
+
     assert my_file_import, "Are you importing `HouseInfo` from `house_info` in `{}` file".format(test_file)
     my_class = my_file.query("class {0}({1}): ??".format(test_class, parent_class))
     assert (
@@ -218,15 +218,15 @@ def test_energy_convert_method_module5(parse):
     ), """Have you created a class called `{0}`?
         Is your class inheritings the properties of the `{1}` class?""".format(test_class, parent_class)
 
-    # debug_test_case_class(my_class, test_method) 
+    # debug_test_case_class(my_class, test_method)
 
     my_method = my_file.class_(test_class).method(test_method)
     assert (
         my_method.exists()
     ), "Are you defining a method called `{}`?".format(test_method)
-    
-    # debug_test_case(my_method) 
-    
+
+    # debug_test_case(my_method)
+
     my_class_arguments = (
         my_class.def_args_(test_method).match(
             {
@@ -249,8 +249,8 @@ def test_energy_convert_method_module5(parse):
         my_class_arguments
     ), """Are you defining a method `{0}` for the `{1}` class?
         Are you declaring the correct name and number of parameters?""".format(test_method, test_class)
-    
-    # Check for assignment 
+
+    # Check for assignment
     test_code = (
         my_method.assign_().match(
             {
@@ -264,7 +264,7 @@ def test_energy_convert_method_module5(parse):
     assert (
         test_code
     ), "Are you creating a variable called `recs` set equal to an empty list?"
-    
+
     test_code = (
         my_method.for_().match(
             {
@@ -278,7 +278,7 @@ def test_energy_convert_method_module5(parse):
     )
     assert (
         test_code
-    ), """Do you have a `for` loop, looping through `data`? 
+    ), """Do you have a `for` loop, looping through `data`?
         Is the current loop value called `rec`?"""
 
     test_code = (
@@ -305,7 +305,7 @@ def test_energy_convert_method_module5(parse):
         test_code
     ), """Inside your loop, are you converting `rec` value through `self._rec_energy()` method?
         Are you appending it to `recs` list?"""
-    
+
     test_code= (
         my_method.returns_call().match(
             {
@@ -331,12 +331,12 @@ def test_energy_by_area_and_date_methods_module5(parse):
     # def get_data_by_date(self, rec_date=date.today()):
     #     recs = super().get_data_by_date("energy_usage", rec_date)
     #     return self._convert_data(recs)
-    
+
     test_file = "energy_info"
     parent_class = "HouseInfo"
     test_class = "EnergyData"
     test_method = "get_data_by_area"
-    
+
     my_file = parse(test_file)
     assert my_file.success, my_file.message
 
@@ -346,14 +346,14 @@ def test_energy_by_area_and_date_methods_module5(parse):
     ), """Have you created a class called `{0}`?
         Is your class inheritings the properties of the `{1}` class?""".format(test_class, parent_class)
 
-    # debug_test_case_class(my_class, test_method) 
-    
+    # debug_test_case_class(my_class, test_method)
+
     my_method = my_file.class_(test_class).method(test_method)
     assert (
         my_method.exists()
     ), "Are you defining a method called `{}`?".format(test_method)
-    
-    # debug_test_case(my_method) 
+
+    # debug_test_case(my_method)
 
     my_class_arguments = (
         my_class.def_args_(test_method).match(
@@ -402,7 +402,7 @@ def test_energy_by_area_and_date_methods_module5(parse):
     )
     assert (
         test_code
-    ), """Are you creating a variable called `recs` set equal to 
+    ), """Are you creating a variable called `recs` set equal to
         the `{}` method from the `{}` parent class?
         Are you passing "energy" as the only argument to the method call?""".format(test_method, parent_class)
 
@@ -429,17 +429,17 @@ def test_energy_by_area_and_date_methods_module5(parse):
 
     # Now test get_data_by_date
     test_method = "get_data_by_date"
-    
+
     my_file_import = my_file.from_imports(
         "datetime", "date")
     assert my_file_import, "Are you importing `date` from datetime in `{}`".format(test_file)
-    
+
     my_method = my_file.class_(test_class).method(test_method)
     assert (
         my_method.exists()
     ), "Are you defining a method called `{}`?".format(test_method)
-    
-    # debug_test_case(my_method) 
+
+    # debug_test_case(my_method)
 
     my_class_arguments = (
         my_class.def_args_(test_method).match(
@@ -491,11 +491,11 @@ def test_energy_by_area_and_date_methods_module5(parse):
     )
     assert (
         test_code
-    ), """Are you creating a variable called `recs` set equal to 
+    ), """Are you creating a variable called `recs` set equal to
         the `{}` method from the `{}` parent class?
         Are you passing "energy" as the only argument to the method call?""".format(test_method, parent_class)
 
-    # debug_test_case(my_method) 
+    # debug_test_case(my_method)
 
     test_code = (
         my_method.returns_call().match(
@@ -524,33 +524,33 @@ def test_energy_calculate_usage_method_module5(parse):
     #      def calculate_energy_usage(self, data):
     #         total_energy = sum([field * self.ENERGY_PER_BULB for field in data])
     #         return total_energy
-    
+
     test_file = "energy_info"
     parent_class = "HouseInfo"
     test_class = "EnergyData"
     test_method = "calculate_energy_usage"
-    
+
     my_file = parse(test_file)
     assert my_file.success, my_file.message
 
     my_file_import = my_file.from_imports(
         "datetime", "date")
     assert my_file_import, "Are you importing `date` from datetime in `{}`".format(test_file)
-    
+
     my_class = my_file.query("class {0}({1}): ??".format(test_class, parent_class))
     assert (
         my_class.exists()
     ), """Have you created a class called `{0}`?
         Is your class inheritings the properties of the `{1}` class?""".format(test_class, parent_class)
 
-    # debug_test_case_class(my_class, test_method) 
-    
+    # debug_test_case_class(my_class, test_method)
+
     my_method = my_file.class_(test_class).method(test_method)
     assert (
         my_method.exists()
     ), "Are you defining a method called `{}`?".format(test_method)
-    
-    # debug_test_case(my_method) 
+
+    # debug_test_case(my_method)
 
     my_class_arguments = (
         my_class.def_args_(test_method).match(
@@ -611,7 +611,7 @@ def test_energy_calculate_usage_method_module5(parse):
         Are you setting `field * self.ENERGY_PER_BULB` as you `list comprehension` expression?
         Are you iterating over `data` in your `list comprehension`?
         """
-    
+
     test_code = (
         my_method.returns_call().match(
             {
@@ -639,7 +639,7 @@ def test_sensor_app_energy_info_by_area_module5(parse):
 
     test_file = "sensor_app"
     test_class = "EnergyData"
-    
+
     my_file = parse(test_file)
     assert my_file.success, my_file.message
 
@@ -647,7 +647,7 @@ def test_sensor_app_energy_info_by_area_module5(parse):
         "energy_info", "EnergyData")
     assert my_file_import, "Are you importing `EnergyData` from `energy_info` in `{}`".format(test_file)
 
-    # debug_test_case(my_file)    
+    # debug_test_case(my_file)
 
     test_code = (
         my_file.assign_().match(
@@ -669,7 +669,7 @@ def test_sensor_app_energy_info_by_area_module5(parse):
     ), """Are you creating an instance of the '{}' class called `energy_data`
         Are you passing `data` as the initialization argument for the constructor?
         """.format(test_class)
-    
+
     test_code = (
         my_file.assign_().match(
             {
@@ -694,7 +694,7 @@ def test_sensor_app_energy_info_by_area_module5(parse):
     ), """Are you setting `recs` to the method call `get_data_by_area` from the `energy_data` object?
         Are you passing `rec_area=test_area` as the only argument to the method?
         """
-    
+
     test_code = (
         my_file.assign_().match(
             {
@@ -732,11 +732,11 @@ def test_sensor_app_energy_info_by_date_module5(parse):
 
     test_file = "sensor_app"
     test_class = "EnergyData"
-    
+
     my_file = parse(test_file)
     assert my_file.success, my_file.message
 
-    # debug_test_case(my_file)   
+    # debug_test_case(my_file)
 
     test_code = (
         my_file.assign_().match(
